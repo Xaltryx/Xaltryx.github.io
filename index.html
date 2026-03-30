@@ -87,7 +87,6 @@
     transition: opacity 0.3s;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -166,10 +165,8 @@
   }
 
   section { position: relative; z-index: 1; }
-
   .container { max-width: 1140px; margin: 0 auto; padding: 0 64px; }
 
-  /* HERO */
   #hero-section {
     min-height: 100vh;
     display: flex;
@@ -398,7 +395,6 @@
     50% { transform: scaleY(0.4); transform-origin: top; }
   }
 
-  /* SECTION HEADER */
   .section-header {
     display: flex;
     align-items: center;
@@ -428,7 +424,6 @@
     margin-bottom: 16px;
   }
 
-  /* TERMINAL */
   .terminal {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -477,7 +472,6 @@
   .t-val { color: var(--amber); }
   .t-blank { height: 10px; }
 
-  /* ABOUT */
   #about { padding: 130px 0; }
 
   .about-layout {
@@ -505,7 +499,6 @@
     margin-top: 6px;
   }
 
-  /* PROJECTS */
   #projects { padding: 130px 0; }
 
   .projects-grid {
@@ -538,6 +531,7 @@
   .project-card:hover::after { height: 100%; }
   .project-card.featured { grid-column: span 8; }
   .project-card.side { grid-column: span 4; }
+  .project-card.half { grid-column: span 6; }
 
   .project-corner {
     position: absolute;
@@ -562,7 +556,6 @@
 
   .project-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* version badge inline with num */
   .project-version {
     font-size: 8px;
     letter-spacing: 0.14em;
@@ -589,7 +582,6 @@
     margin-bottom: 28px;
   }
 
-  /* changelog strip */
   .project-changelog {
     display: flex;
     flex-direction: column;
@@ -639,8 +631,9 @@
 
   .tag.cyan { border-color: rgba(0,255,213,0.2); color: var(--cyan); background: rgba(0,255,213,0.04); }
   .tag.amber { border-color: rgba(255,184,0,0.2); color: var(--amber); background: rgba(255,184,0,0.04); }
+  .tag.purple { border-color: rgba(176,110,255,0.2); color: var(--purple); background: rgba(176,110,255,0.04); }
 
-  .project-links { display: flex; gap: 16px; }
+  .project-links { display: flex; gap: 16px; flex-wrap: wrap; }
 
   .project-link {
     font-size: 10px;
@@ -668,6 +661,18 @@
     box-shadow: var(--glow);
   }
 
+  .project-link.cyan-link {
+    color: var(--cyan);
+    border-color: rgba(0,255,213,0.2);
+    background: rgba(0,255,213,0.04);
+  }
+
+  .project-link.cyan-link:hover {
+    color: #000;
+    background: var(--cyan);
+    border-color: var(--cyan);
+  }
+
   .project-placeholder {
     display: flex;
     flex-direction: column;
@@ -683,7 +688,29 @@
   .placeholder-plus { font-size: 28px; color: var(--green); margin-bottom: 14px; line-height: 1; }
   .placeholder-text { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); line-height: 1.8; }
 
-  /* SKILLS */
+  /* live badge */
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid var(--green-muted);
+    padding: 3px 10px;
+    background: rgba(0,255,106,0.06);
+    margin-bottom: 18px;
+  }
+
+  .live-badge-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
   #skills { padding: 130px 0; background: var(--bg2); }
 
   .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
@@ -704,12 +731,9 @@
   .skills-group-title::before { content: '▸'; font-size: 8px; color: var(--green-dim); }
 
   .skill-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 22px; }
-
   .skill-info { display: flex; justify-content: space-between; align-items: center; }
-
   .skill-name { font-size: 12px; color: var(--text); }
   .skill-pct { font-size: 11px; color: var(--green); font-family: 'Share Tech Mono', monospace; }
-
   .skill-bar-bg { height: 2px; background: var(--border); position: relative; overflow: hidden; }
 
   .skill-bar-fill {
@@ -734,7 +758,6 @@
     vertical-align: middle;
   }
 
-  /* CERTS */
   #certs { padding: 130px 0; }
 
   .certs-grid {
@@ -832,7 +855,6 @@
 
   .spec-course::before { content: '→'; color: var(--green-dim); font-size: 11px; }
 
-  /* CONTACT */
   #contact { padding: 130px 0; background: var(--bg2); }
 
   .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
@@ -848,9 +870,7 @@
   }
 
   .contact-heading .green { color: var(--green); text-shadow: var(--glow); }
-
   .contact-text { font-size: 13px; color: var(--text-dim); line-height: 2; margin-bottom: 40px; }
-
   .contact-links { display: flex; flex-direction: column; gap: 14px; }
 
   .contact-link {
@@ -886,7 +906,6 @@
   .contact-link-icon { font-size: 18px; width: 26px; text-align: center; }
   .contact-link-label { font-size: 9px; color: var(--text-muted); letter-spacing: 0.2em; text-transform: uppercase; margin-left: auto; }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 34px 64px;
@@ -916,7 +935,7 @@
     .container { padding: 0 24px; }
     .hero-stats { grid-template-columns: repeat(2,1fr); }
     .projects-grid { grid-template-columns: 1fr; }
-    .project-card.featured, .project-card.side, .project-placeholder { grid-column: span 1; }
+    .project-card.featured, .project-card.side, .project-card.half, .project-placeholder { grid-column: span 1; }
     .certs-grid { grid-template-columns: 1fr; }
     .cert-specialization { grid-column: span 1; grid-template-columns: 1fr; }
     .spec-main { border-right: none; border-bottom: 1px solid var(--border); }
@@ -979,8 +998,8 @@
         <div class="stat-label">Verified Certs</div>
       </div>
       <div class="stat">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Shipped Project</div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">Shipped Projects</div>
       </div>
       <div class="stat">
         <div class="stat-num">2yr</div>
@@ -1055,6 +1074,7 @@
 
     <div class="projects-grid reveal">
 
+      <!-- PROJECT 001: CSV Cleaner -->
       <div class="project-card featured">
         <div class="project-corner"></div>
         <div class="project-num">001 <span class="project-version">v2.0</span></div>
@@ -1081,7 +1101,30 @@
         </div>
       </div>
 
-      <div class="project-card project-placeholder">
+      <!-- PROJECT 002: Madrasati -->
+      <div class="project-card side">
+        <div class="project-corner"></div>
+        <div class="project-num">002 <span class="project-version">v2.0</span></div>
+        <div class="live-badge"><div class="live-badge-dot"></div> Live on Vercel</div>
+        <h3 class="project-title">مدرستي — Madrasati</h3>
+        <p class="project-desc">
+          Designed and shipped a full-stack Arabic vocabulary platform using AI-assisted development. Features a smart quiz system, SM2 spaced repetition flashcards, personal analytics with streak tracking, a global XP leaderboard, and an admin dashboard — all in Arabic with full RTL support. Debugged through real production build errors and deployed live on Vercel.
+        </p>
+        <div class="project-tags">
+          <span class="tag cyan">Next.js 14</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag purple">Supabase</span>
+          <span class="tag amber">Full Stack</span>
+          <span class="tag">RTL / Arabic</span>
+        </div>
+        <div class="project-links">
+          <a href="https://madrasati-chi.vercel.app/" target="_blank" class="project-link cyan-link">↗ Live Demo</a>
+          <a href="https://github.com/Xaltryx/madrasati" target="_blank" class="project-link green">↗ GitHub</a>
+        </div>
+      </div>
+
+      <!-- Placeholder -->
+      <div class="project-placeholder">
         <div class="placeholder-plus">+</div>
         <div class="placeholder-text">More projects<br>incoming</div>
       </div>
@@ -1319,6 +1362,7 @@
     'Data Cleaning Specialist',
     'Automation Engineer',
     'CLI Tool Builder',
+    'Full Stack Builder',
     'MIT-Bound Builder',
     'Freelancer & Maker'
   ];
